@@ -20,8 +20,8 @@
 не должна быть линейной
 """
 
-CONTACTS = 'Contacts.txt'
 
+CONTACTS = 'Contacts.txt'
 
 def print_contacts(file_name):
     line_number = 1
@@ -51,7 +51,7 @@ def add_contact(file_name):
 def copy_contact(file_name, new_file_name):
     print("Список контактов: ")
     print_contacts(CONTACTS)
-    print("Выберите строку, которую хотите перенсти в другой файл: ")
+    print("Выберите строку, которую хотите скопировать в другой файл: ")
     copy_line_num = int(input())
     copy_line = ' '
     
@@ -70,4 +70,20 @@ def copy_contact(file_name, new_file_name):
     with open(new_file_name, 'w', encoding='utf8') as file:
         file.writelines(all_cont)
     print(f"Выбранная строка скопирована в Copied_contacts!")    
+    
+def delete_contact(file_name):
+    print("Список контактов: ")
+    print_contacts(CONTACTS)
+    print("Выберите строку, которую хотите удалить: ")
+    delete_line_num = int(input())
+    delete_line = ' '
+    
+    with open(file_name, 'r', encoding='utf8') as file:
+        all_cont = file.readlines()
+        for i in range(len(all_cont)):
+            if i == delete_line_num - 1:
+                delete_line = i
+                i = ' '
+            
+    print(f"Выбрана строка {delete_line_num} {delete_line} удалена!")
     

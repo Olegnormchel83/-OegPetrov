@@ -20,7 +20,7 @@
 не должна быть линейной
 """
 
-from PYLes8files1 import print_contacts, add_contact, copy_contact
+from PYLes8files1 import print_contacts, add_contact, copy_contact, delete_contact
 
 CONTACTS = 'Contacts.txt'
 COPIED_CONTACTS = 'Copied_contacts.txt'
@@ -30,7 +30,8 @@ def interface():
         print('Выберете действие:\
             \n 1 - Добавить контакт \
             \n 2 - Вывести все контакты \
-            \n 3 - Скопировать данные \
+            \n 3 - Скопировать контакт \
+            \n 4 - Удалить контакт  \
             \n 0 - Выйти')
         command = int(input())
         match command:
@@ -42,6 +43,8 @@ def interface():
                 print_contacts(CONTACTS)  
             case 3:
                 copy_contact(CONTACTS, COPIED_CONTACTS)
+            case 4:
+                delete_contact(CONTACTS)   
             
 if __name__ == '__main__':
     interface()
